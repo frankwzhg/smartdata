@@ -1,0 +1,41 @@
+{% extends 'user_base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+        <form class='login' action="" method="POST">
+
+        {% csrf_token %}
+        <h1>Create your account</h1>
+        <div>
+            <label>First name</label><br>
+            <input class="login-input" type="text" name="first_name" placeholder="First Name" />
+        </div>
+        <div >
+            <label>Last name</label><br>
+            <input class="login-input" type="text" name="last_name" placeholder="Last Name" />
+        </div>
+        <div >
+            {{ form.email.errors }}
+            <label>E-mail</label><br>
+           <input class="login-input" type="email" name="email" placeholder="Email" />
+        </div>
+        <div >
+{#            {{ form.errors.values.0 }}#}
+            {{ form.username.errors }}
+            <label>Username</label><br>
+            <input class="login-input" type="text" name="username" placeholder="User Name" />
+        </div>
+        <div >
+{#            {{ form.errors.values.1 }}#}
+            {{ form.password2.errors }}
+            <label>Password</label><br>
+            <input class="login-input" type="password" name="password1" placeholder="Password" />
+        </div>
+        <div >
+            <label>Password again</label><br>
+            <input class="login-input" type="password" name="password2" placeholder="Password again" />
+        </div>
+        <input type="submit" name="submit" class="btn btn-primary" value="Create account" >
+
+    </form>
+{% endblock %}

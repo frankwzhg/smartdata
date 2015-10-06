@@ -1,0 +1,33 @@
+{% extends "user_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title_content %}log in{% endblock %}
+{% block content %}
+
+
+    <form class="login" method="POST" action="." >
+        {{ login }}
+        {% csrf_token %}
+        {% if user_name == '' or Password == '' %}
+        <div class="user_login">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Username or Password can not be blank, please check it.
+        </div>
+    {% elif bad_details %}
+        <div class="user_login">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Your username and password didn't match. Please try again.
+        </div>
+    {% endif %}
+        <h1>Please Log in</h1>
+        <input type="text" name="username" class="login-input" placeholder="User Name" autofocus />
+        <input type="password" name="password" class="login-input" placeholder="Password" />
+        <input type="submit" value="{% trans 'Log in' %}" />
+        <p class="login-help">{% trans "Forgot password" %}? <a href="{% url 'user_resetpassword' %}">{% trans "Reset it" %}</a>!</p>
+        <p class="login-help">{% trans "Not member" %}? <a href="{% url 'user_registrate' %}">{% trans "Register" %}</a>!</p>
+    </form>
+
+{% endblock %}

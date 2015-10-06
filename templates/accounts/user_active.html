@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>user active confirm</title>
+    </head>
+    <body>
+        {% if url %}
+            <h1>your account is {{ status }} now, you can click <span><a href={{ url }}>here</a></span>log in.</h1>
+        {% endif %}
+        {% if message %}
+            <h1>your active link is expire, {{ message }}</h1>
+        {% endif %}
+
+    </body>
+</html>

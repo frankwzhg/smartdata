@@ -1,0 +1,25 @@
+{% extends 'user_base.html' %}
+{% load static %}
+{% block custom %}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+{% endblock %}
+{% block content %}
+    <form class="login" method="POST" action="">
+        {% csrf_token %}
+        <h1>Update Your Profile</h1>
+        <label>First Name</label>
+        <input class="login-input" type="text" name="firstname" value="{{ user_firstname }}"/>
+        <label>Last Name</label>
+        <input class="login-input" type="text" name="lastname" value="{{ user_lastname }}"/>
+        <label>Email</label>
+        <input class="login-input" type="email" name="email" value="{{ user_email }}"/>
+        <label>Web Site</label>
+        <input class="login-input" type="url"  name="website" value="{{ website }}"/>
+        <label>birthday</label>
+        <input class="login-input" type="date" id="datepicker" name="birthday" value="{{ birth_day|date:'Y-m-d' }}"/>
+        <button class="btn btn-primary" type="submit" value="Update">Update</button>
+    </form>
+    <script> $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'}); </script>
+{% endblock %}

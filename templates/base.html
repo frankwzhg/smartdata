@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+    {% block meta %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}{% endblock %}
+    {% block Fonts %}{% endblock %}
+{% endblock %}
+{% block body %}
+
+    {% block nav %}{% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+    {% block jQuery %}{% endblock %}
+    {% block javascript %}{% endblock %}
+
+{% endblock %}
+
+</html>
